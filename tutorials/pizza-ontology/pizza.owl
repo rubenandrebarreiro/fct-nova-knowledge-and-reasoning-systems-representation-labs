@@ -7,5 +7,152 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<http://www.pizza.com/ontologies/pizza.owl>
+Annotation(rdfs:comment "A pizza ontology that describes various pizzas based on their toppings."@en)
 
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#CaperTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#CheeseTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#DeepPanBase>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#GreenPepperTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#HamTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#MeatTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#MushroomTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#OliveTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#OnionTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#ParmezanTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#PepperTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#Pizza>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#PizzaBase>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#PrawnTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#RedPepperTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#SalamiTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#ThinAndCrispyBase>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#TunaTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>))
+
+############################
+#   Classes
+############################
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping> (<http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping> <http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#CaperTopping> (<http://www.pizza.com/ontologies/pizza.owl#CaperTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#CaperTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#CheeseTopping> (<http://www.pizza.com/ontologies/pizza.owl#CheeseTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#CheeseTopping> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#DeepPanBase> (<http://www.pizza.com/ontologies/pizza.owl#DeepPanBase>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#DeepPanBase> <http://www.pizza.com/ontologies/pizza.owl#PizzaBase>)
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#DeepPanBase> <http://www.pizza.com/ontologies/pizza.owl#ThinAndCrispyBase>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#GreenPepperTopping> (<http://www.pizza.com/ontologies/pizza.owl#GreenPepperTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#GreenPepperTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#HamTopping> (<http://www.pizza.com/ontologies/pizza.owl#HamTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#HamTopping> <http://www.pizza.com/ontologies/pizza.owl#MeatTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping> (<http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#MeatTopping> (<http://www.pizza.com/ontologies/pizza.owl#MeatTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MeatTopping> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping> (<http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping> <http://www.pizza.com/ontologies/pizza.owl#CheeseTopping>)
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping> <http://www.pizza.com/ontologies/pizza.owl#ParmezanTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#MushroomTopping> (<http://www.pizza.com/ontologies/pizza.owl#MushroomTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MushroomTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#OliveTopping> (<http://www.pizza.com/ontologies/pizza.owl#OliveTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#OliveTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#OnionTopping> (<http://www.pizza.com/ontologies/pizza.owl#OnionTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#OnionTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#ParmezanTopping> (<http://www.pizza.com/ontologies/pizza.owl#ParmezanTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#ParmezanTopping> <http://www.pizza.com/ontologies/pizza.owl#CheeseTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#PepperTopping> (<http://www.pizza.com/ontologies/pizza.owl#PepperTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#PepperTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping> (<http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping> <http://www.pizza.com/ontologies/pizza.owl#MeatTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#Pizza> (<http://www.pizza.com/ontologies/pizza.owl#Pizza>)
+
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#PizzaBase> (<http://www.pizza.com/ontologies/pizza.owl#PizzaBase>)
+
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping> (<http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
+
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#PrawnTopping> (<http://www.pizza.com/ontologies/pizza.owl#PrawnTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#PrawnTopping> <http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#RedPepperTopping> (<http://www.pizza.com/ontologies/pizza.owl#RedPepperTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#RedPepperTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#SalamiTopping> (<http://www.pizza.com/ontologies/pizza.owl#SalamiTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SalamiTopping> <http://www.pizza.com/ontologies/pizza.owl#MeatTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping> (<http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping> (<http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping> <http://www.pizza.com/ontologies/pizza.owl#MeatTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#ThinAndCrispyBase> (<http://www.pizza.com/ontologies/pizza.owl#ThinAndCrispyBase>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#ThinAndCrispyBase> <http://www.pizza.com/ontologies/pizza.owl#PizzaBase>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#TomatoTopping> (<http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#TomatoTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#TunaTopping> (<http://www.pizza.com/ontologies/pizza.owl#TunaTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#TunaTopping> <http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping> (<http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#VegetableTopping> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
+
+
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping> <http://www.pizza.com/ontologies/pizza.owl#PrawnTopping> <http://www.pizza.com/ontologies/pizza.owl#TunaTopping>)
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#CaperTopping> <http://www.pizza.com/ontologies/pizza.owl#MushroomTopping> <http://www.pizza.com/ontologies/pizza.owl#OliveTopping> <http://www.pizza.com/ontologies/pizza.owl#OnionTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperTopping> <http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>)
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#CheeseTopping> <http://www.pizza.com/ontologies/pizza.owl#MeatTopping> <http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#GreenPepperTopping> <http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping> <http://www.pizza.com/ontologies/pizza.owl#RedPepperTopping>)
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#HamTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping> <http://www.pizza.com/ontologies/pizza.owl#SalamiTopping> <http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping>)
+DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#Pizza> <http://www.pizza.com/ontologies/pizza.owl#PizzaBase> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
 )
