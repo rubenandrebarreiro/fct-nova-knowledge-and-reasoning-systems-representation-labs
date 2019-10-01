@@ -9,6 +9,8 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 Ontology(<http://www.pizza.com/ontologies/pizza.owl>
 Annotation(rdfs:comment "A pizza ontology that describes various pizzas based on their toppings."@en)
 
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#CaperTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#CheeseTopping>))
@@ -16,9 +18,11 @@ Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#DeepPanBase>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#GreenPepperTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#HamTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#MargheritaPizza>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#MeatTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#MushroomTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#NamedPizza>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#OliveTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#OnionTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#ParmezanTopping>))
@@ -31,15 +35,79 @@ Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#PrawnTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#RedPepperTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#SalamiTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping>))
+Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#SohoPizza>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#ThinAndCrispyBase>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#TunaTopping>))
 Declaration(Class(<http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>))
+Declaration(ObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#hasBase>))
+Declaration(ObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#hasIngredient>))
+Declaration(ObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#hasTopping>))
+Declaration(ObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#isBaseOf>))
+Declaration(ObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#isIngredientOf>))
+Declaration(ObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#isToppingOf>))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://www.pizza.com/ontologies/pizza.owl#hasBase> (<http://www.pizza.com/ontologies/pizza.owl#hasBase>)
+
+SubObjectPropertyOf(<http://www.pizza.com/ontologies/pizza.owl#hasBase> <http://www.pizza.com/ontologies/pizza.owl#hasIngredient>)
+InverseObjectProperties(<http://www.pizza.com/ontologies/pizza.owl#hasBase> <http://www.pizza.com/ontologies/pizza.owl#isBaseOf>)
+FunctionalObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#hasBase>)
+ObjectPropertyDomain(<http://www.pizza.com/ontologies/pizza.owl#hasBase> <http://www.pizza.com/ontologies/pizza.owl#Pizza>)
+ObjectPropertyRange(<http://www.pizza.com/ontologies/pizza.owl#hasBase> <http://www.pizza.com/ontologies/pizza.owl#PizzaBase>)
+
+# Object Property: <http://www.pizza.com/ontologies/pizza.owl#hasIngredient> (<http://www.pizza.com/ontologies/pizza.owl#hasIngredient>)
+
+InverseObjectProperties(<http://www.pizza.com/ontologies/pizza.owl#hasIngredient> <http://www.pizza.com/ontologies/pizza.owl#isIngredientOf>)
+TransitiveObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#hasIngredient>)
+
+# Object Property: <http://www.pizza.com/ontologies/pizza.owl#hasTopping> (<http://www.pizza.com/ontologies/pizza.owl#hasTopping>)
+
+SubObjectPropertyOf(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#hasIngredient>)
+InverseObjectProperties(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#isToppingOf>)
+ObjectPropertyDomain(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#Pizza>)
+ObjectPropertyRange(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
+
+# Object Property: <http://www.pizza.com/ontologies/pizza.owl#isBaseOf> (<http://www.pizza.com/ontologies/pizza.owl#isBaseOf>)
+
+SubObjectPropertyOf(<http://www.pizza.com/ontologies/pizza.owl#isBaseOf> <http://www.pizza.com/ontologies/pizza.owl#isIngredientOf>)
+ObjectPropertyDomain(<http://www.pizza.com/ontologies/pizza.owl#isBaseOf> <http://www.pizza.com/ontologies/pizza.owl#PizzaBase>)
+ObjectPropertyRange(<http://www.pizza.com/ontologies/pizza.owl#isBaseOf> <http://www.pizza.com/ontologies/pizza.owl#Pizza>)
+
+# Object Property: <http://www.pizza.com/ontologies/pizza.owl#isIngredientOf> (<http://www.pizza.com/ontologies/pizza.owl#isIngredientOf>)
+
+TransitiveObjectProperty(<http://www.pizza.com/ontologies/pizza.owl#isIngredientOf>)
+
+# Object Property: <http://www.pizza.com/ontologies/pizza.owl#isToppingOf> (<http://www.pizza.com/ontologies/pizza.owl#isToppingOf>)
+
+SubObjectPropertyOf(<http://www.pizza.com/ontologies/pizza.owl#isToppingOf> <http://www.pizza.com/ontologies/pizza.owl#isIngredientOf>)
+
+
 
 ############################
 #   Classes
 ############################
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza> (<http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza>)
+
+AnnotationAssertion(rdfs:comment <http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza> "A pizza that only has Jalapeno Pepper, Mozarella, Pepperoni and Tomato toppings"@en)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza> <http://www.pizza.com/ontologies/pizza.owl#NamedPizza>)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanHotPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>))
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza> (<http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza>)
+
+AnnotationAssertion(rdfs:comment <http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza> "A pizza that only has Mozarella, Pepperoni and Tomato toppings"@en)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza> <http://www.pizza.com/ontologies/pizza.owl#NamedPizza>)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#AmericanaPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>))
 
 # Class: <http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping> (<http://www.pizza.com/ontologies/pizza.owl#AnchovyTopping>)
 
@@ -70,6 +138,13 @@ SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#HamTopping> <http://www.pi
 
 SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#JalapenoPepperTopping> <http://www.pizza.com/ontologies/pizza.owl#PepperTopping>)
 
+# Class: <http://www.pizza.com/ontologies/pizza.owl#MargheritaPizza> (<http://www.pizza.com/ontologies/pizza.owl#MargheritaPizza>)
+
+AnnotationAssertion(rdfs:comment <http://www.pizza.com/ontologies/pizza.owl#MargheritaPizza> "A pizza that only has Mozarella and Tomato toppings"@en)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MargheritaPizza> <http://www.pizza.com/ontologies/pizza.owl#NamedPizza>)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MargheritaPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MargheritaPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>))
+
 # Class: <http://www.pizza.com/ontologies/pizza.owl#MeatTopping> (<http://www.pizza.com/ontologies/pizza.owl#MeatTopping>)
 
 SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MeatTopping> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
@@ -82,6 +157,10 @@ DisjointClasses(<http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping> <h
 # Class: <http://www.pizza.com/ontologies/pizza.owl#MushroomTopping> (<http://www.pizza.com/ontologies/pizza.owl#MushroomTopping>)
 
 SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#MushroomTopping> <http://www.pizza.com/ontologies/pizza.owl#VegetableTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#NamedPizza> (<http://www.pizza.com/ontologies/pizza.owl#NamedPizza>)
+
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#NamedPizza> <http://www.pizza.com/ontologies/pizza.owl#Pizza>)
 
 # Class: <http://www.pizza.com/ontologies/pizza.owl#OliveTopping> (<http://www.pizza.com/ontologies/pizza.owl#OliveTopping>)
 
@@ -105,6 +184,8 @@ SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#PepperoniTopping> <http://
 
 # Class: <http://www.pizza.com/ontologies/pizza.owl#Pizza> (<http://www.pizza.com/ontologies/pizza.owl#Pizza>)
 
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#Pizza> owl:Thing)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#Pizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasBase> <http://www.pizza.com/ontologies/pizza.owl#PizzaBase>))
 
 # Class: <http://www.pizza.com/ontologies/pizza.owl#PizzaBase> (<http://www.pizza.com/ontologies/pizza.owl#PizzaBase>)
 
@@ -127,6 +208,15 @@ SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SalamiTopping> <http://www
 # Class: <http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping> (<http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping>)
 
 SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SeafoodTopping> <http://www.pizza.com/ontologies/pizza.owl#PizzaTopping>)
+
+# Class: <http://www.pizza.com/ontologies/pizza.owl#SohoPizza> (<http://www.pizza.com/ontologies/pizza.owl#SohoPizza>)
+
+AnnotationAssertion(rdfs:comment <http://www.pizza.com/ontologies/pizza.owl#SohoPizza> "A pizza that only has Mozarella, Olive, Parmezan and Tomato toppings"@en)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SohoPizza> <http://www.pizza.com/ontologies/pizza.owl#NamedPizza>)
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SohoPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#MozzarellaTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SohoPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#OliveTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SohoPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#ParmezanTopping>))
+SubClassOf(<http://www.pizza.com/ontologies/pizza.owl#SohoPizza> ObjectSomeValuesFrom(<http://www.pizza.com/ontologies/pizza.owl#hasTopping> <http://www.pizza.com/ontologies/pizza.owl#TomatoTopping>))
 
 # Class: <http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping> (<http://www.pizza.com/ontologies/pizza.owl#SpicyBeefTopping>)
 
