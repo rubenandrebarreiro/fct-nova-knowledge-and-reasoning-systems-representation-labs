@@ -1,0 +1,44 @@
+Prefix(:=<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/latin-lover-ontology#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/latin-lover-ontology>
+
+Declaration(Class(:Italian))
+Declaration(Class(:ItalianProf))
+Declaration(Class(:LatinLover))
+Declaration(Class(:Lazy))
+Declaration(Class(:Mafioso))
+############################
+#   Classes
+############################
+
+# Class: :Italian (:Italian)
+
+SubClassOf(:Italian ObjectUnionOf(:LatinLover :Lazy :Mafioso))
+
+# Class: :ItalianProf (:ItalianProf)
+
+SubClassOf(:ItalianProf :Italian)
+DisjointClasses(:ItalianProf :Lazy)
+DisjointClasses(:ItalianProf :Mafioso)
+
+# Class: :LatinLover (:LatinLover)
+
+SubClassOf(:LatinLover :Italian)
+
+# Class: :Lazy (:Lazy)
+
+SubClassOf(:Lazy :Italian)
+
+# Class: :Mafioso (:Mafioso)
+
+SubClassOf(:Mafioso :Italian)
+
+
+DisjointClasses(:LatinLover :Lazy :Mafioso)
+)

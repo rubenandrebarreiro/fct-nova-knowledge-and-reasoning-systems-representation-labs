@@ -1,0 +1,100 @@
+Prefix(:=<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-ontology#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-ontology>
+
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#AreaManager>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager>))
+Declaration(Class(:Project))
+Declaration(ObjectProperty(:boss))
+Declaration(ObjectProperty(:manages))
+Declaration(ObjectProperty(:subordinatedBy))
+Declaration(ObjectProperty(:worksFor))
+Declaration(DataProperty(:empCode))
+Declaration(DataProperty(:projectName))
+Declaration(DataProperty(:salary))
+############################
+#   Object Properties
+############################
+
+# Object Property: :boss (:boss)
+
+SubObjectPropertyOf(:boss owl:topObjectProperty)
+InverseObjectProperties(:boss :subordinatedBy)
+ObjectPropertyDomain(:boss <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee>)
+ObjectPropertyRange(:boss <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager>)
+
+# Object Property: :manages (:manages)
+
+SubObjectPropertyOf(:manages :worksFor)
+
+# Object Property: :subordinatedBy (:subordinatedBy)
+
+SubObjectPropertyOf(:subordinatedBy owl:topObjectProperty)
+ObjectPropertyDomain(:subordinatedBy <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager>)
+ObjectPropertyRange(:subordinatedBy <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee>)
+
+# Object Property: :worksFor (:worksFor)
+
+SubObjectPropertyOf(:worksFor owl:topObjectProperty)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :empCode (:empCode)
+
+SubDataPropertyOf(:empCode owl:topDataProperty)
+DataPropertyDomain(:empCode <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee>)
+
+# Data Property: :projectName (:projectName)
+
+SubDataPropertyOf(:projectName owl:topDataProperty)
+DataPropertyDomain(:projectName :Project)
+
+# Data Property: :salary (:salary)
+
+SubDataPropertyOf(:salary owl:topDataProperty)
+DataPropertyDomain(:salary <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee>)
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#AreaManager> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#AreaManager>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#AreaManager> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager>)
+DisjointClasses(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#AreaManager> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager>)
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee> ObjectIntersectionOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager> ObjectExactCardinality(1 :boss)))
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee> ObjectSomeValuesFrom(:worksFor owl:Thing))
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager> ObjectIntersectionOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee> ObjectSomeValuesFrom(:boss owl:Thing)))
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager> ObjectUnionOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#AreaManager> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager>))
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Manager>)
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager> ObjectIntersectionOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee> ObjectMinCardinality(3 :worksFor)))
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager> ObjectIntersectionOf(:Project ObjectExactCardinality(1 :manages)))
+
+# Class: :Project (:Project)
+
+SubClassOf(:Project ObjectIntersectionOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#Employee> ObjectMinCardinality(3 :worksFor)))
+SubClassOf(:Project ObjectIntersectionOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/employee-cardinality-ontology#TopManager> ObjectExactCardinality(1 :manages)))
+
+
+)

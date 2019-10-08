@@ -1,0 +1,51 @@
+Prefix(:=<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/untitled-ontology-3#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology>
+
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#English>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Gentleman>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Hooligan>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#LatinLover>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Lazy>))
+Declaration(Class(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Person>))
+############################
+#   Classes
+############################
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#English> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#English>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#English> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Person>)
+DisjointClasses(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#English> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian>)
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Gentleman> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Gentleman>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Gentleman> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#English>)
+DisjointClasses(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Gentleman> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Hooligan>)
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Hooligan> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Hooligan>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Hooligan> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#English>)
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Person>)
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian> ObjectUnionOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#LatinLover> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Lazy>))
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#LatinLover> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#LatinLover>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#LatinLover> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Gentleman>)
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#LatinLover> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian>)
+
+# Class: <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Lazy> (<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Lazy>)
+
+SubClassOf(<http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Lazy> <http://www.semanticweb.org/rubenandrebarreiro/ontologies/2019/9/person-ontology#Italian>)
+
+
+)
